@@ -259,7 +259,7 @@ class Integration {
 			$this->paged       = $this->query->get_items_pages_count();
 		}
 
-		if ( isset( $settings['use_current_query'] ) && filter_var( $settings['use_current_query'], FILTER_VALIDATE_BOOLEAN ) ) {
+		if ( ( isset( $_REQUEST['action'] ) && 'jet_smart_filters' === $_REQUEST['action'] ) || ( ! empty( $_REQUEST['jsf'] ) && false !== strpos( $_REQUEST['jsf'], 'jet-woo-products-grid' ) ) {
 			$query = $this->get_default_query( $this->query );
 		}
 
